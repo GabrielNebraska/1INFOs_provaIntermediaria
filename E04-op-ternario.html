@@ -1,20 +1,42 @@
 <script>
     //PROBLEMA: Acréscimo ou Desconto
     /*
-    Peça para o usuário informar o valor do terreno que deseja comprar. Peça também para ele informar em quantos anos pagará o financiamento do terreno.
+    Peça para o usuário informar o valor do terreno que deseja comprar. Peça também para ele informar em quantos 
+    anos pagará o financiamento do terreno.
     Considere que:
     Se o número de anos for até 5 (inclusive), haverá um desconto de 5% aplicado no valor do financiamento.
     Se o número de anos for até 10 (inclusive), haverá um acréscimo de 15% aplicado no valor do financiamento.
     Se o número de anos for acima de 10, haverá um acréscimo de 30%.
-    Apresente o valor final a ser pago pelo terreno, considerando o desconto ou acréscimo especificado para a quantidade de anos de financiamento.
+    Apresente o valor final a ser pago pelo terreno, considerando o desconto ou 
+    acréscimo especificado para a quantidade de anos de financiamento.
     */
 
     //Entrada
 
+    let valorterreno = Number(prompt("Qual valor do terreno que deseja comprar?"));
+    const quantosanos = parseInt(prompt("Quantos anos você usará para pagar?"));
+    
 
     //Processamento
 
+    (quantosanos <= 5) ? valorterreno = valorterreno - (valorterreno * 0.05) :
+    (quantosanos <= 10) ? valorterreno = valorterreno + (valorterreno * 0.15) :
+    valorterreno = valorterreno + (valorterreno * 0.30);
+
+    let desconto = 0; 
+    let acrescimo = 0;
+
+    (quantosanos <= 5) ? desconto = valorterreno * 0.05 :
+    desconto = 0;
+
+
+    (quantosanos > 5 && quantosanos <= 10) ? acrescimo = valorterreno * 0.15 : 
+    (quantosanos > 10) ? acrescimo = valorterreno * 0.30 :
+    acrescimo = 0;
 
     //Saída
+
+    document.write(`O valor final a ser pago será de R$${valorterreno.toFixed(2)} <br> 
+    Você teve um desconto de R$${desconto.toFixed(2)}, e um acrescimo de R$${acrescimo.toFixed(2)}.`)
 
 </script>

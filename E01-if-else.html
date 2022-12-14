@@ -5,15 +5,29 @@
     Pergunte para o usuário por quantos dias ele ficará com a bicicleta.
     - Se a pessoa ficar até 7 dias (inclusive) com a bicicleta, o custo diário não sofrerá alterações;
     - Se a pessoa ficar mais de 7 dias com a bicicleta, o custo diário terá um desconto de 20%.
-    Apresente quantos dias a pessoa ficará com a bicicleta e também apresente o preço final que será cobrado pelo aluguel da bicicleta.
+    Apresente quantos dias a pessoa ficará com a bicicleta e também apresente o preço final que será cobrado pelo 
+    aluguel da bicicleta.
     */
 
     //Entrada
 
+    const quantosdias = parseInt(prompt("Por quantos dias você ficará com a bicicleta?"));
+    let custodiario = 15;
+    const desconto = custodiario * 0.20;
 
     //Processamento
 
+    if(quantosdias <= 7){
+        custodiario = custodiario
+    }else if(quantosdias > 7){
+        custodiario = custodiario - desconto 
+    }
+
+    const preçototal = quantosdias * custodiario;
+
 
     //Saída
+
+    document.write(`A pessoa ficará ${quantosdias} dias com a bicicleta, e será cobrado ao todo R$ ${preçototal.toFixed(2)}, e o preço diario será de R$ ${custodiario.toFixed(2)} .`)
     
 </script>
